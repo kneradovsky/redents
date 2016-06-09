@@ -10,7 +10,6 @@ export default function promiseMiddleware() {
     const FAILURE = type + '_FAILURE';
 
     next({ ...rest, status: 'request', type: REQUEST });
-
     return promise
       .then(res => {
         next({ ...rest, res, status: 'done', type: SUCCESS });
@@ -19,8 +18,7 @@ export default function promiseMiddleware() {
       })
       .catch(error => {
         next({ ...rest, error: error, status: 'error', type: FAILURE });
-        console.log(error);
-
+        //console.log(error);
         return false;
       });
   };

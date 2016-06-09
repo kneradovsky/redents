@@ -33,14 +33,19 @@ function Server() {
 	   var response = req.body;
        res.send(response);
     });
+
+    router.post("/postUrl",(req,res) => {
+        const retval = {customurl:true};
+        res.send(JSON.stringify(retval))
+    }); 
     
-    router.all('/error/404', (req,res) => {
+    router.all(/^\/error\/404(|\/.*)/, (req,res) => {
       res.status(404).send("Not found");
     });
-    router.all('/error/400', (req,res) => {
+    router.all(/^\/error\/400(|\/.*)/, (req,res) => {
       res.status(400).send("Bad request");
     });
-    router.all('/error/500', (req,res) => {
+    router.all(/^\/error\/500(|\/.*)/, (req,res) => {
       res.status(500).send("Server Error");
     });
 
