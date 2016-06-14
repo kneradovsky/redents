@@ -20,8 +20,12 @@ export default function data_entitites(dataEntities) {
 	//generate entries for data entities
 	const entOpers = Object.keys(dataEntities).reduce((prev,cur)=> {
 		const res = Object.assign(prev);
-		res[cur+'s'] = reduceArray('LOAD_'+cur.toString().toUpperCase()+'S');
-		res[cur] = reduceObject('GET_'+cur.toString().toUpperCase);
+		//use default action type if entity doesn't have custom action type for the index defined
+		const index_action  = (dataEntities[cur].index || {}).type || 'LOAD_'+cur.toString().toUpperCase()+'S';
+		//same for get operation
+		const get_action =  (dataEntities[cur].get || {}).type || 'GET_'+cur.toString().toUpperCase();
+		res[cur+'s'] = reduceArray(index_action);
+		res[cur] = reduceObject(get_action);
 		return res;
 	},{});
 	return entOpers;
