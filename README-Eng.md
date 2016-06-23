@@ -106,18 +106,18 @@ entities = {
 Default operations supported are:
 * index - fetches the arrays of Entities.
   * By convention uses the url ``` entities.defaults.baseUrl+"/"+entityName+"s" ```
-  * By convention uses the get request
+  * By convention uses the get method
 * get - fetches one entity
   * By convention uses the url ``` entities.defaults.baseUrl+"/"+entityName+"s"+"/"+data ```
   data is passed from the client code
-  * By convention uses the get request
+  * By convention uses the get method
 * post - saves the entity data to the server
   * By convention uses the url ``` entities.defaults.baseUrl+"/"+entityName+"s" ```
-  * By convention uses the post request
+  * By convention uses the post method
   * By convention passes the data as the json body
 * delete - removes the entity from the server
   * By convention uses the url ``` entities.defaults.baseUrl+"/"+entityName+"s" ```
-  * By convention uses the delete request
+  * By convention uses the delete method
 
 You can override an operation and inside the operation you could override either the url, or the request.
 The request field of the entity object should be the function:
