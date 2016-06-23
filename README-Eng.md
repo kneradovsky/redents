@@ -10,6 +10,12 @@ The module contains the implementation of the:
 
 You don't need to implement actions, just add reducers to the rootreducer and add middlewares to the store
 
+## Установка
+
+```shell
+npm install redux-redents
+```
+
 ## Quick sample
 ```javascript
 //file index.js
