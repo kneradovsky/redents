@@ -37,3 +37,10 @@ Default operations supported are:
   * By convention uses the url ``` entities.defaults.baseUrl+"/"+entityName+"s"+"/"+data ```
   data is passed from the client code
   * By convention uses the get request
+* post - saves the entity data to the server
+  * By convention uses the url ``` entities.defaults.baseUrl+"/"+entityName+"s" ```
+  * By convention uses the post request
+  * By convention passes the data as the json body
+* delete - removes the entity from the server
+  * By convention uses the url ``` entities.defaults.baseUrl+"/"+entityName+"s" ```
+  * By convention uses the delete request
