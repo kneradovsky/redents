@@ -1,8 +1,10 @@
-export default dataEntities = {
+const dataEntities = {
   defaults: {
-    baseUrl: "http://locahost:3000/demo/"
+    baseUrl: "http://localhost:3000/demo"
   },
   entities: {
     fruit : {}
   }
-}
+};
+
+export default dataEntities;

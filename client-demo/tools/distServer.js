@@ -5,7 +5,7 @@ import browserSync from 'browser-sync';
 import historyApiFallback from 'connect-history-api-fallback';
 
 //run test server
-import server from '../../test/testserver';
+import server from '../../test/testServer';
 const testServer = server();
 
 // Run Browsersync

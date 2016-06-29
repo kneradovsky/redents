@@ -11,7 +11,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import config from '../webpack.config.dev';
 //start testserver
-import server from '../../test/testserver'; 
+import server from '../../test/testServer';
 const testServer = server();
 
 const bundler = webpack(config);

@@ -9,18 +9,18 @@ import "babel-polyfill";
 
 import './styles/styles.scss'; //Yep, that's right. You can import SASS/CSS files too! Webpack will run the associated loader and plug this into the page.
 
-createRootReducer = () => {
+const createRootReducer = () => {
   const dicts = dictionary_reducers(dataEntities.entities);
   return combineReducers({...dicts});
-}
+};
 
-configureStore = (rootReducer) => {
-  return applyMiddleware(promiseMiddleware,chainMiddleware)(createStore)(rootReducer, initialState,compose(
+const configureStore = (rootReducer) => {
+  return applyMiddleware(promiseMiddleware,chainMiddleware)(createStore)(rootReducer, {},compose(
     // Add other middleware on this line...
     window.devToolsExtension ? window.devToolsExtension() : f => f //add support for Redux dev tools
     )
   );
-}
+};
 
 
 

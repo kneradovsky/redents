@@ -92,3 +92,5 @@ function Server() {
     logger.log("server started");
     return this;
 };
+
+export default Server;

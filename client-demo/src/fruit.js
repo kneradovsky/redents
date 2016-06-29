@@ -1,15 +1,15 @@
 import React, { Component, PropTypes } from 'react';
-import { Button, Input } from 'react-bootstrap';
+import { Button, FormControl } from 'react-bootstrap';
 
 export class Fruit extends Component {
+  static propTypes = {
+    value: PropTypes.object.isRequired,
+    onUpdate: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired
+  }
   constructor(props) {
     super(props);
     this.onChange = this.onChange.bind(this);
-  }
-  static propTypes = {
-    value: PropTypes.object.isRequired,
-    onFruitUpdate: PropTypes.function.isRequired,
-    onFruitDelete: PropTypes.function.isRequired
   }
   state = {
     ...this.props.value
@@ -20,10 +20,12 @@ export class Fruit extends Component {
   render() {
     return(
       <form>
-        <Input type="text" addonBefore="Name" value={this.state.name} onChange={this.OnChange}/>
-        <Button bsStyle="info" onClick={()=>this.props.onFruitUpdate(this.state)}>Update</Button>
-        <Button bsStyle="danger" onClick={()=>this.props.onFruitDelete(this.state)}>Delete</Button>
+        <FormControl type="text" addonBefore="Name" value={this.state.name} onChange={this.OnChange}/>
+        <Button bsStyle="info" onClick={()=>this.props.onUpdate(this.state)}>Update</Button>
+        <Button bsStyle="danger" onClick={()=>this.props.onDelete(this.state)}>Delete</Button>
       </form>
     );
   }
  }
+
+ export default Fruit;

@@ -57,7 +57,7 @@
   "scripts": {
     "start-message": "babel-node tools/startMessage.js",
     "prestart": "npm-run-all --parallel start-message remove-dist lint:tools",
-    "start": "npm-run-all --parallel test:watch open:src",
+    "start": "npm-run-all --parallel open:src",
     "open:src": "babel-node tools/srcServer.js",
     "open:dist": "babel-node tools/distServer.js",
     "lint:tools": "eslint webpack.config.js tools",
@@ -66,8 +66,6 @@
     "build:html": "babel-node tools/buildHtml.js",
     "prebuild": "npm run clean-dist && npm run build:html",
     "build": "babel-node tools/build.js && npm run open:dist",
-    "deploy:lite": "babel-node tools/deploy.js",
-    "deploy": "babel-node tools/build.js && babel-node tools/deploy.js",
     "test": "mocha tools/testSetup.js src/**/*.spec.js --reporter progress",
     "test:watch": "npm run test -- --watch"
   },
