@@ -1,6 +1,6 @@
 const dataEntities = {
   defaults: {
-    baseUrl: "http://localhost:3000/demo"
+    baseUrl: "/demo"
   },
   entities: {
     fruit : {}

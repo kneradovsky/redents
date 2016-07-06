@@ -20,6 +20,12 @@ export default {
     publicPath: '/',
     filename: 'bundle.js'
   },
+  proxy : {
+    '/demo/*' : {
+      target : {host:'localhost', port:3000},
+      secure: false
+    }
+  },
   plugins: [
     new webpack.DefinePlugin(GLOBALS), //Tells React to build in prod mode. https://facebook.github.io/react/downloads.htmlnew webpack.HotModuleReplacementPlugin());
     new webpack.HotModuleReplacementPlugin(),

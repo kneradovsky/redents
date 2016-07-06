@@ -10,9 +10,9 @@ const testServer = server();
 
 // Run Browsersync
 browserSync({
-  port: 3000,
+  port: 5000,
   ui: {
-    port: 3001
+    port: 5001
   },
   server: {
     baseDir: 'dist'

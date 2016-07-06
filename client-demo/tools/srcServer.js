@@ -9,12 +9,15 @@ import historyApiFallback from 'connect-history-api-fallback';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+import httpProxy from 'http-proxy-middleware';
 import config from '../webpack.config.dev';
 //start testserver
 import server from '../../test/testServer';
 const testServer = server();
 
 const bundler = webpack(config);
+
+
 
 // Run Browsersync and use middleware for Hot Module Replacement
 browserSync({
@@ -30,7 +33,14 @@ browserSync({
         stats: { colors: true },
 
         // Set to false to display a list of each file that is being bundled.
-        noInfo: true
+        noInfo: true,
+
+        proxy : {
+          '/demo/*' : {
+            target : {host:'localhost', port:3000},
+            secure: false
+          }
+        }
 
         // for other settings see
         // http://webpack.github.io/docs/webpack-dev-middleware.html
@@ -39,7 +49,11 @@ browserSync({
       // bundler should be the same as above
       webpackHotMiddleware(bundler),
 
-      historyApiFallback()
+      historyApiFallback(),
+      httpProxy('/demo',{
+        target: 'http://localhost:3000',
+        logLevel: 'debug'
+      })
     ]
   },
 
