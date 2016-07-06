@@ -1,4 +1,4 @@
-# Middlewares и Reducers для Redux
+# Middlewares и Reducers для Redux ![BuildStatus](https://travis-ci.org/kneradovsky/redents.svg?branch=master)
 
 If you don't speak russian please consider [the english version of the README](README-Eng.md)
 
