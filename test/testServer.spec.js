@@ -40,7 +40,7 @@ describe("client demo server",function() {
     })
   });
   it("delete",function(done) {
-    request.delete(frurl+"/apple").then(res=> {
+    request.delete(frurl+"/1").then(res=> {
       res.status.should.eql(204);
       done();
       return true;

@@ -68,12 +68,11 @@ const nextError = (actionType,code) => sinon.spy((action) => {
 const defcheck = (spy,done) => () => {
 	spy.should.have.been.calledTwice;
 	spy.alwaysReturned(true).should.equal(true);
-	done();			
+	done();
 }
 
 
 describe("Promise middleware", function() {
-	
 	it('Default entity, index', function(done) {
 		const next = defnext('LOAD_ENTDEFAULTS');
 		promiseMW(next)(entityOps('entDefault','index')).should.eventually.equal(true).notify(defcheck(next,done));

@@ -6,13 +6,13 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var logger=console;
-
+var router = express();
+var server = http.createServer(router);
 
 
 module.exports=Server;
 
 function Server() {
-  var router = express();
     var fruits = [{id:"1",name:"orange"},{id:"2",name:"mango"},{id:"3",name:"kiwi"},{id:"4",name:"lemon"},{id:"5",name:"apple"}];
     router.get(/^\/data\/(.+)$/,(req,res) => {
        var entity=req.params[0].toString();
@@ -68,11 +68,23 @@ function Server() {
       }
     })
     router.post("/demo/fruits",bodyParser.json(),(req,res)=> {
-      console.log(req.body);
       var newfruit = req.body;
       var found = false;
       for (var i = 0; i < fruits.length; i++) {
         if(fruits[i].id==newfruit.id) {
+          fruits[i]=newfruit;
+          found=true;
+          break;
+        }
+      }
+      if(!found) fruits.push(newfruit);
+      res.status(200).send(newfruit).end();
+    })
+    router.post("/demo/fruits/:name",bodyParser.json(),(req,res)=> {
+      var newfruit = req.body;
+      var found = false;
+      for (var i = 0; i < fruits.length; i++) {
+        if(fruits[i].name==req.param.name) {
           fruits[i]=newfruit;
           found=true;
           break;
@@ -90,8 +102,7 @@ function Server() {
       res.setHeader('Access-Control-Allow-Origin', '*');
       next();
     })
-    var server = http.createServer(router);
-    router.listen(3000);
+    server.listen(3000);
     logger.log("server started");
     return this;
 };
