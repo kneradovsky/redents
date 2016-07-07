@@ -1,4 +1,4 @@
-# Middlewares and Reducers for Redux ![BuildStatus](https://travis-ci.org/kneradovsky/redents.svg?branch=master)
+# Middlewares and Reducers for Redux [![BuildStatus](https://travis-ci.org/kneradovsky/redents.svg?branch=master)](https://travis-ci.org/kneradovsky/redents)
 
 ## Motivation
 Once you're required to fetch data from the server in your Redux applications, you need to either write a custom Middleware or use redux-* modules to fetch data. Anyway you need to implement actions creators, reducers or both. If your server provides rest api for data manipulation the implementation of anything becomes boring very quickly. And Redux-redents to the rescue!!!
