@@ -33,14 +33,7 @@ browserSync({
         stats: { colors: true },
 
         // Set to false to display a list of each file that is being bundled.
-        noInfo: true,
-
-        proxy : {
-          '/demo/*' : {
-            target : {host:'localhost', port:3000},
-            secure: false
-          }
-        }
+        noInfo: true
 
         // for other settings see
         // http://webpack.github.io/docs/webpack-dev-middleware.html
@@ -52,8 +45,13 @@ browserSync({
       historyApiFallback(),
       httpProxy('/demo',{
         target: 'http://localhost:3000',
+
         logLevel: 'debug'
-      })
+      }),
+      (req,res,next) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        next();
+      }
     ]
   },
 

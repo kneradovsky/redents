@@ -11,7 +11,7 @@ function getActionTypeByOper(entity,operation) {
 }
 /**
 * Main function for data exchange with server. Default operations supported: index,get,post and delete
-* To make entity be supported you should add it to the entities object. 
+* To make entity be supported you should add it to the entities object.
 * You could also specify nonstandard operations as children elements of the entity.
 * @param {entity} - entity name to operate on
 * @param {operation} - operation name to perform
