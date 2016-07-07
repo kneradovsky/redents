@@ -1,5 +1,5 @@
 {
-  "name": "cardservice-ui",
+  "name": "redents-redux-client-demo",
   "version": "1.0.0",
   "description": "cardservice javascript ui",
   "main": "",
@@ -76,7 +76,7 @@
   },
   "keywords": [],
   "author": "kneradovsky",
-  "license": "Apache",
+  "license": "Apache-2.0",
   "bugs": {
     "url": ""
   },

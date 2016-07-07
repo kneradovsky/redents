@@ -42,7 +42,7 @@ export class Fruits extends Component {
   }
   render() {
     const selectRowProp = {
-      mode: "checkbox",  //checkbox for multi select, radio for single select.
+      mode: "radio",  //checkbox for multi select, radio for single select.
       clickToSelect: false,   //click row will trigger a selection on that row.
       bgColor: "rgb(238, 193, 213)"   //selected row background color
     };
