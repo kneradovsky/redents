@@ -34,11 +34,11 @@ export class Fruits extends Component {
     this.props.actions.entityOperation('fruit','delete',fruit.id,()=>this.props.actions.entityOperation('fruit','index'));
   }
   onFruitSelect(fruit) {
-    this.props.actions.selectFruit({type:'GET_FRUIT',res:{data:  fruit}});
+    this.props.actions.selectFruit(fruit);
   }
   onNameChange(newname) {
     const newFruit = {...this.props.currentFruit,name:newname};
-    this.props.actions.selectFruit({type:'GET_FRUIT',res:{data: newFruit}});
+    this.props.actions.selectFruit(newFruit);
   }
   render() {
     const selectRowProp = {
@@ -83,7 +83,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       entityOperation : (...args) => dispatch(entityOpFunction(...args)),
-      selectFruit: (...args) => dispatch(...args)
+      selectFruit: (fruit) => dispatch({type:'GET_FRUIT',res:{data:  fruit}})
     }
   };
 }
